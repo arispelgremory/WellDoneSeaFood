@@ -1,0 +1,28 @@
+#map {
+    margin-bottom: 50px;
+}
+
+.modal {
+    width: 80% !important;
+    margin: auto;
+    height: 95%;
+    animation: zoomOut 0.5s;
+}
+
+.modal.open {
+    animation: zoomIn 0.5s;
+    display: block;
+}
+
+.modal-content {
+    margin-top: 106px !important;
+}
+
+.modal-content button {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.errormessage {
+    color: red;
+}

@@ -14,11 +14,9 @@ apt -y install openssl
 mkdir -p /etc/nginx/ssl
 openssl req -x509 -nodes -days 365 -newkey rsa:2048 -subj "/C=UK/ST=London/L=London/O=default/CN=*.default.com" -keyout /etc/nginx/ssl/default.key -out /etc/nginx/ssl/default.crt
 
-
-curl -k https://engineer:AnakPerantau@103.68.63.123/ssl/avlsfleet.com.crt > /etc/nginx/ssl/seafood.tuvbo.com.crt
-curl -k https://engineer:AnakPerantau@103.68.63.123/ssl/avlsfleet.com.key > /etc/nginx/ssl/seafood.tuvbo.com.key 
-curl -k https://engineer:AnakPerantau@103.68.63.123/ssl/avlsfleet.com-sub.crt > /etc/nginx/ssl/seafood.tuvbo.com-sub.crt
-curl -k https://engineer:AnakPerantau@103.68.63.123/ssl/avlsfleet.com-sub.key > /etc/nginx/ssl/seafood.tuvbo.com-sub.key 
+# curl -k https://engineer:AnakPerantau@103.68.63.123/ssl/tuvbo.com-sub-cert.pem > /etc/nginx/ssl/tuvbo.com-sub-cert.pem
+curl -k https://engineer:AnakPerantau@103.68.63.123/ssl/tuvbo.com-sub-fullchain.pem > /etc/nginx/ssl/tuvbo.com-sub-fullchain.pem 
+curl -k https://engineer:AnakPerantau@103.68.63.123/ssl/tuvbo.com-sub-privkey.pem > /etc/nginx/ssl/tuvbo.com-sub-privkey.pem
 /etc/init.d/nginx restart
 
 
@@ -47,8 +45,8 @@ server {
 server{
     listen 443 ssl;
     ssl on;
-    ssl_certificate /etc/nginx/ssl/seafood.tuvbo.com-sub.crt;
-    ssl_certificate_key /etc/nginx/ssl/seafood.tuvbo.com-sub.key;
+    ssl_certificate /etc/nginx/ssl/tuvbo.com-sub-fullchain.pem;
+    ssl_certificate_key /etc/nginx/ssl/tuvbo.com-sub-privkey.pem;
     access_log  /var/log/nginx/seafood.tuvbo.com-access.log combined;
     error_log   /var/log/nginx/seafood.tuvbo.com-error.log warn;
     server_name  seafood.tuvbo.com;

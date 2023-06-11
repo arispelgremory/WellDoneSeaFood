@@ -35,7 +35,6 @@ apt install -y python3-venv
 cd ..
 python3.11 -m venv venv
 ls
-
 source /venv/bin/activate
 
 apt update && apt dist-upgrade
@@ -44,14 +43,23 @@ pip --version
 pip list
 pip install --upgrade pip
 
-pip install django djangorestframework
 
 
-exit
 source /venv/bin/activate
+pip install django djangorestframework
+exit
 django-admin startproject myproject
 
 
 django-admin startapp myapp
 
 cd myproject
+python3 manage.py runserver
+python manage.py makemigrations
+python manage.py migrate
+
+
+python3 manage.py createsuperuser
+#engineer
+#blank
+#AnakPerantau

@@ -1,3 +1,6 @@
+
+su -
+
 apt -y install curl gnupg
 curl http://nginx.org/keys/nginx_signing.key | apt-key add -
 echo "deb http://nginx.org/packages/mainline/debian/ bullseye nginx" > /etc/apt/sources.list.d/latest-nginx.list
@@ -55,6 +58,10 @@ server{
     location / {
         proxy_set_header X-Real-IP remote_addr;
         proxy_pass http://127.0.0.1:3000/;
+    }
+    location /pgadmin4/ {
+        include fastcgi_params;
+        proxy_pass http://127.0.0.1:8080/pgadmin4/;
     }
 }
 EOF

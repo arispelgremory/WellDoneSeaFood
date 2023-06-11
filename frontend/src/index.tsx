@@ -4,12 +4,18 @@ import './index.css';
 import App from './pages/App';
 import reportWebVitals from './reportWebVitals';
 
+// 1. import `NextUIProvider` component
+import { NextUIProvider } from '@nextui-org/react';
+
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
+
 root.render(
   <React.StrictMode>
-    <App />
+      <NextUIProvider>
+          <App />
+      </NextUIProvider>
   </React.StrictMode>
 );
 

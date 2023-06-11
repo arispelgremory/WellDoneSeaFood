@@ -1,5 +1,6 @@
 import React, {ChangeEvent, FormEvent, useState} from 'react';
 import {Button, FormElement, Input, Link, Spacer, Text} from "@nextui-org/react";
+import {useNavigate} from "react-router-dom";
 
 function Login() {
     return (
@@ -33,6 +34,8 @@ function LoginForm() {
     const [usernameError, setUsernameError] = useState('');
     const [passwordError, setPasswordError] = useState('');
 
+    const navigate = useNavigate();
+
     const handleUsernameChange = (e: ChangeEvent<FormElement>) => {
         setUsername(e.currentTarget.value);
     }
@@ -58,6 +61,8 @@ function LoginForm() {
         // if() {
         //     setPasswordError("test");
         // }
+
+        navigate(`/`);
 
     };
 

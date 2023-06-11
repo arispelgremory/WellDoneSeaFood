@@ -1,17 +1,15 @@
 import React from 'react';
-import Login from "./login/login";
 import '../utilities/css/App.css';
-import NormalButton from "../components/Buttons/Button";
-import LoadingButton from "../components/Buttons/LoadingButton";
+import { Route, Routes } from "react-router-dom";
+import Login from "./login/login";
+import Home from './home';
 
 function App() {
   return (
-    // <div className="text-2xl">
-    //     <h1>Hello World</h1>
-    //     <NormalButton text={"Testing reusable component"} onPressed={test} />
-    //     <LoadingButton />
-    // </div>
-      <Login />
+      <Routes>
+        <Route path={`/`} element={<Home />} />
+        <Route path={`/login`} element={<Login />} />
+      </Routes>
   );
 }
 

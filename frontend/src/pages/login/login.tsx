@@ -1,5 +1,5 @@
-import React from 'react';
-import NormalButton from "../../components/Buttons/Button";
+import React, {ChangeEvent, FormEvent, useState} from 'react';
+import {Button, FormElement, Input, Link, Spacer, Text} from "@nextui-org/react";
 
 function Login() {
     return (
@@ -7,39 +7,14 @@ function Login() {
             <div className={`w-4/5 h-full mx-auto flex`}>
                 <div className={`w-1/2 px-8 flex flex-col justify-center h-full`}>
                     <div className={`mb-8  w-3/4`}>
-                        <h1 className={`mb-0`}>Sign In</h1>
-                        <h4>Enter your credentials to access o your account.</h4>
+                        <Text h1>Sign In</Text>
+                        <Text h4>Enter your credentials to access of your account.</Text>
                     </div>
-                    <div className={`mb-8 w-3/4`}>
-                        <form>
-                            <div className={`flex flex-col mb-4`}>
-                                <label htmlFor="username" className={`mb-2 font-medium`}>Username: </label>
-                                <input
-                                    type="text"
-                                    name="username"
-                                    id="username"
-                                    placeholder="Username"
-                                    className={`border border-gray-400 rounded-lg p-2 focus:border-blue-300 focus:border-2`}
-                                />
-                                <p className={`visible text-red-700`}>This is an error</p>
-                            </div>
-                            <div className={`flex flex-col`}>
-                                <label  className={`mb-2`} htmlFor="password">Password: </label>
-                                <input
-                                    type="password"
-                                    name="password"
-                                    id="password"
-                                    placeholder="Enter your password"
-                                    className={`border border-gray-400 rounded-lg p-2 focus:border-blue-300 focus:border-2`}
-                                />
-                                <p className={`visible text-red-700`}>This is an error</p>
-                            </div>
-                        </form>
-                    </div>
-                    <div className={`w-3/4`}>
-                        <NormalButton text={`Login`} onPressed={() => {}} />
-                    </div>
+                    <LoginForm />
                 </div>
+
+
+
                 <div className={`w-1/2`}>
                     <img
                         className={`h-full rounded-2xl`}
@@ -51,5 +26,80 @@ function Login() {
         </div>
     )
 }
+
+function LoginForm() {
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+    const [usernameError, setUsernameError] = useState('');
+    const [passwordError, setPasswordError] = useState('');
+
+    const handleUsernameChange = (e: ChangeEvent<FormElement>) => {
+        setUsername(e.currentTarget.value);
+    }
+
+    const handlePasswordChange = (e: ChangeEvent<FormElement>) => {
+        setPassword(e.currentTarget.value);
+    }
+
+    const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+
+
+
+
+        // TODO: Fetch API to login
+
+        // if username is wrong
+        // if() {
+        //     setUsernameError("test");
+        // }
+
+        // if password is wrong
+        // if() {
+        //     setPasswordError("test");
+        // }
+
+    };
+
+    return (
+        <div className={`w-3/4`}>
+            <form onSubmit={handleSubmit}>
+                <div className={`flex flex-col mb-4`}>
+                    <Input
+                        clearable
+                        label={"Username"}
+                        size={"lg"}
+                        placeholder={"Your Name"}
+                        name={"username"}
+                        id={"username"}
+                        bordered
+                        color={"primary"}
+                        helperText={usernameError}
+                        onChange={handleUsernameChange}
+                    />
+                </div>
+                <div className={`flex flex-col`}>
+                    <Input.Password
+                        clearable
+                        label={"Password"}
+                        size={"lg"}
+                        placeholder={"Your Password"}
+                        name={"Password"}
+                        id={"password"}
+                        bordered
+                        color={"primary"}
+                        helperText={passwordError}
+                        onChange={handlePasswordChange}
+                    />
+                </div>
+                <Spacer y={3} />
+                <Button css={{width: `100%`}} color="primary" type={`submit`}>Login</Button>
+            </form>
+            <Spacer y={0.8} />
+            <p>Haven't have an account? <span><Link color={"primary"} href={"#"}>Register</Link></span></p>
+        </div>
+    );
+}
+
 
 export default Login;

@@ -15,8 +15,5 @@ function App() {
   );
 }
 
-function test() {
-    console.log("clicked");
-}
 
 export default App;

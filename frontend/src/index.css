@@ -13,3 +13,12 @@
     line-height: normal !important;
     color: #F31260;
 }
+
+.home-container {
+    scrollbar-width: none;
+    --ms-overflow-style: none;
+}
+
+.home-container::-webkit-scrollbar {
+    display: none;
+}

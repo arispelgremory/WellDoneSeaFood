@@ -1,0 +1,7 @@
+.modal {
+    background-color: rgba(255, 255, 255, 0.4);
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    -webkit-mask-size: 100%;
+    -webkit-mask-image: url("/public/assets/icons/play.svg");
+}

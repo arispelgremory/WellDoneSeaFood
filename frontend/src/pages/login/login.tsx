@@ -47,22 +47,27 @@ function LoginForm() {
     const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
-
+        let error = false;
 
 
         // TODO: Fetch API to login
 
         // if username is wrong
-        // if() {
-        //     setUsernameError("test");
-        // }
+        if(!username) {
+            setUsernameError("test");
+            error = true;
+        }
 
-        // if password is wrong
-        // if() {
-        //     setPasswordError("test");
-        // }
+        if(!password) {
+            setPasswordError("test");
+            error = true;
+        }
 
-        navigate(`/`);
+        if(!error) {
+            navigate(`/`);
+        }
+
+        return;
 
     };
 
@@ -83,6 +88,7 @@ function LoginForm() {
                         onChange={handleUsernameChange}
                     />
                 </div>
+                <Spacer y={1.2} />
                 <div className={`flex flex-col`}>
                     <Input.Password
                         clearable
@@ -100,7 +106,7 @@ function LoginForm() {
                 <Spacer y={3} />
                 <Button css={{width: `100%`}} color="primary" type={`submit`}>Login</Button>
             </form>
-            <Spacer y={0.8} />
+            <Spacer y={0.5} />
             <p>Haven't have an account? <span><Link color={"primary"} href={"#"}>Register</Link></span></p>
         </div>
     );

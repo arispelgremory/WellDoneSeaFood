@@ -11,6 +11,12 @@ apt -y install postgresql-15
 
 ss -tunpl
 
+# MAIN databace account
+su postgres -c "psql -U postgres template1 -c \"ALTER USER postgres with encrypted password 'AnakPerantau'\""
+#
+/etc/init.d/postgresql restart
+su postgres -c "PGPASSWORD=AnakPerantau psql -U postgres template1 -c \"\l\""
+# su postgres -c "PGPASSWORD=AnakPerantau psql -U postgres seafood -c \"\l\""
 
 echo "deb [trusted=yes] https://ftp.postgresql.org/pub/pgadmin/pgadmin4/apt/bullseye pgadmin4 main" > /etc/apt/sources.list.d/pgadmin4.list
 cat /etc/apt/sources.list.d/pgadmin4.list

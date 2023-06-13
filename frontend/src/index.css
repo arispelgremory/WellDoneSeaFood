@@ -3,3 +3,22 @@
 @tailwind utilities;
 
 
+.nextui-c-eXOOPO > .nextui-c-ctQnhE:last-child {
+    right: 10px !important;
+}
+
+.nextui-c-gJvMas > .nextui-c-cwdhZi {
+    margin-top: 5px !important;
+    font-size: 1rem !important;
+    line-height: normal !important;
+    color: #F31260;
+}
+
+.home-container {
+    scrollbar-width: none;
+    --ms-overflow-style: none;
+}
+
+.home-container::-webkit-scrollbar {
+    display: none;
+}

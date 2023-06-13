@@ -18,4 +18,4 @@ exit
 create-react-app reactapp
 
 cd reactapp
-npm start 0.0.0.0
+npm start

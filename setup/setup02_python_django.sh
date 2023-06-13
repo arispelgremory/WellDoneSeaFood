@@ -6,6 +6,13 @@ su -
 su - engineer
 exit
 
+# cat > /etc/apt/sources.list << EOF
+# deb http://mirror.0x.sg/debian/ bullseye main contrib non-free
+# deb http://security.debian.org/debian-security bullseye-security main contrib non-free
+# deb http://mirror.0x.sg/debian/ bullseye-updates main contrib non-free
+# EOF
+# apt -y update && apt -y dist-upgrade
+
 wget https://www.python.org/ftp/python/3.11.1/Python-3.11.1.tgz
 tar -xzvf Python-3.11.1.tgz
 cd Python-3.11.1/
@@ -45,15 +52,15 @@ pip install --upgrade pip
 
 
 
-source /venv/bin/activate
 pip install django djangorestframework
 exit
+source /venv/bin/activate
 django-admin startproject myproject
 
-
-django-admin startapp myapp
-
 cd myproject
+
+django-admin startapp api
+
 python3 manage.py runserver
 python manage.py makemigrations
 python manage.py migrate

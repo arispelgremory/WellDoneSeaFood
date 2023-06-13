@@ -1,3 +1,4 @@
+su -
 ### As ROOT : Install POSTGRESQL
 apt -y install gnupg wget
 echo "deb http://apt.postgresql.org/pub/repos/apt/ bullseye-pgdg main" > /etc/apt/sources.list.d/latest-postgresql.list

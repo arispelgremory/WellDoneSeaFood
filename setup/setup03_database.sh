@@ -23,6 +23,9 @@ echo "deb [trusted=yes] https://ftp.postgresql.org/pub/pgadmin/pgadmin4/apt/bull
 cat /etc/apt/sources.list.d/pgadmin4.list
 
 apt update
+apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 8881B2A8210976F2
+apt update
+
 #apt -y install pgadmin4
 apt -y install pgadmin4-web
 

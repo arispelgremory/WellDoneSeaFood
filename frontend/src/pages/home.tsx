@@ -1,4 +1,4 @@
-import {Button, Card, Col, Grid, Link, Modal, Row, Spacer, Text, useModal} from "@nextui-org/react";
+import {Button, Card, Col, Container, Grid, Link, Modal, Row, Spacer, Text, useModal} from "@nextui-org/react";
 import React, { useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -13,7 +13,7 @@ const HomeComponent = () => {
     const sectionRefs = useRef<Array<HTMLDivElement | null>>([]).current;
     const [navigating, setNavigating] = useState(false);
 
-    const sections = [`landing`, `new-arrivals`, `popular-items`, `MovieModal`];
+    const sections = [`landing`, `new-arrivals`, `popular-items`, `MovieModal`, `recommendations`, `commitments`];
 
     const scrollHandler = (event: React.WheelEvent<HTMLDivElement>) => {
 
@@ -59,6 +59,8 @@ const HomeComponent = () => {
             <HomeNewArrivals />
             <HomePopularItems />
             <HomeMovieModal />
+            <HomeRecommendations />
+            <HomeCommitments />
         </div>
     )
 }
@@ -147,7 +149,7 @@ const HomeMovieModal = () => {
             <div
                 className={`h-full w-full absolute overflow-hidden top-0 left-0 z-0`}
             >
-                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/p6ff-ShY5Bw?autoplay=1&mute=1&loop=1&controls=0&disablekb=1"
+                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/p6ff-ShY5Bw?autoplay=1&mute=1&loop=1&controls=0&disablekb=1&showinfo=0&modestbranding=1&playsinline=1&enablejsapi=1"
                         title="YouTube video player" frameBorder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                         allowFullScreen></iframe>
@@ -157,6 +159,7 @@ const HomeMovieModal = () => {
                 onClose={() => setVisible(false)}
                 width={`560px`}
                 noPadding
+                blur
             >
                 <Modal.Body>
                     <iframe width="560" height="315" src="https://www.youtube.com/embed/p6ff-ShY5Bw"
@@ -165,6 +168,49 @@ const HomeMovieModal = () => {
                             allowFullScreen></iframe>
                 </Modal.Body>
             </Modal>
+        </div>
+    )
+}
+
+const HomeRecommendations = () => {
+    return (
+        <div className={`h-screen w-[98%] m-auto flex flex-col justify-center`}>
+            <Text h2>Recommendations</Text>
+            <Spacer y={1.5} />
+            <Container sm>
+                <Row>
+                    <Col>
+                        <Text h3>Crab Recommendation</Text>
+                        <p>We ensure that our Flower Crabs are freshly caught from the sea and immediately preserved under zero degrees Celsius to maintain their peak freshness.</p>
+                    </Col>
+                    <Col>
+                        <img src={"https://images.chinatimes.com/newsphoto/2018-10-22/900/20181022004100.jpg"} alt={`Fishes`} />
+                    </Col>
+                </Row>
+                <Row>
+                    <Col>
+                        <img src={`https://image-cdn-flare.qdm.cloud/q5569528cb69bc/image/cache/data/2019/07/12/465f12ad5000fd6dc542a8c18c87a0e9-max-w-1024.jpg`} alt={`Recommend`} />
+                    </Col>
+                    <Col>
+                        <Text h3>Clam Recommendation</Text>
+                        <p>Our abalone is renowned for its freshness and impressive size. Customers continually express their satisfaction with both the exceptional quality of our abalone and its reasonable price.</p>
+                    </Col>
+                </Row>
+            </Container>
+
+        </div>
+    )
+}
+
+const HomeCommitments = () => {
+    return (
+        <div className={`h-screen w-[98%] m-auto flex flex-col justify-center`}>
+            <Text h2>Our Commitments</Text>
+            <Spacer y={1.5} />
+
+
+
+
         </div>
     )
 }

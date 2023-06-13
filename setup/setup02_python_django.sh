@@ -55,9 +55,9 @@ pip install --upgrade pip
 pip install django djangorestframework
 exit
 source /venv/bin/activate
-django-admin startproject myproject
+django-admin startproject wdsf
 
-cd myproject
+cd wdsf
 
 django-admin startapp api
 

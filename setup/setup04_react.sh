@@ -15,7 +15,10 @@ npm -v
 npm install -g create-react-app
 
 exit
-create-react-app reactapp
+cd ~
+# create-react-app reactapp
 
-cd reactapp
-npm start
+# cd reactapp
+cd frontend
+npm i
+npm run start

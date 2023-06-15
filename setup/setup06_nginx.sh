@@ -31,7 +31,6 @@ server {
 }
 server {
     listen 443 ssl default_server;
-    ssl on;
     ssl_certificate /etc/nginx/ssl/default.crt;
     ssl_certificate_key /etc/nginx/ssl/default.key;
     server_name  _;
@@ -47,7 +46,6 @@ server {
 }
 server{
     listen 443 ssl;
-    ssl on;
     ssl_certificate /etc/nginx/ssl/tuvbo.com-sub-fullchain.pem;
     ssl_certificate_key /etc/nginx/ssl/tuvbo.com-sub-privkey.pem;
     access_log  /var/log/nginx/seafood.tuvbo.com-access.log combined;

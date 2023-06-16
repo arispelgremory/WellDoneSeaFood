@@ -61,6 +61,10 @@ server{
         include fastcgi_params;
         proxy_pass http://127.0.0.1:8080/pgadmin4/;
     }
+    location /rabbitmq/ {
+        include fastcgi_params;
+        proxy_pass http://127.0.0.1:15672/;
+    }
 }
 EOF
 /etc/init.d/nginx restart

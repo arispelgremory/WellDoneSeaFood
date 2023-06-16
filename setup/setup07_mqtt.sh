@@ -69,6 +69,7 @@ rabbitmq-plugins enable rabbitmq_mqtt
 service rabbitmq-server restart
 
 
+ss -tunpl
 
 
 

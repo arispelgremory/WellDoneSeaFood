@@ -52,7 +52,7 @@ pip install --upgrade pip
 
 
 
-pip install django djangorestframework
+pip install django djangorestframework markdown django-filter psycopg2-binary django-rest-knox
 exit
 source /venv/bin/activate
 django-admin startproject wdsf

@@ -65,6 +65,14 @@ server{
         include fastcgi_params;
         proxy_pass http://127.0.0.1:15672/;
     }
+    location /admin/ {
+        include fastcgi_params;
+        proxy_pass http://127.0.0.1:8000/admin/;
+    }
+    location /static/ {
+        include fastcgi_params;
+        proxy_pass http://127.0.0.1:8000/static/;
+    }
 }
 EOF
 /etc/init.d/nginx restart

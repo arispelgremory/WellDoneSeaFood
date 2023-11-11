@@ -3,7 +3,7 @@ import React, { useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
-import style from "../utilities/css/Home.module.css";
+import style from "../../assets/css/Home.module.css";
 
 gsap.registerPlugin(ScrollToPlugin);
 
@@ -51,8 +51,8 @@ const HomeComponent = () => {
 
     return (
         <div
-            ref={containerRef}
-            onWheel={scrollHandler}
+            // ref={containerRef}
+            // onWheel={scrollHandler}
             className={`max-h-screen max-w-screen overflow-y-scroll home-container`}
         >
             <HomeLanding  />
@@ -65,15 +65,14 @@ const HomeComponent = () => {
     )
 }
 
-
 const HomeLanding = () => {
     return (
-        <div className={`h-screen w-[98%] m-auto flex justify-evenly items-center`}>
+        <div className={`h-screen w-4/5 m-auto flex justify-evenly items-center`}>
             <div>
-                <Text h1 size={72}>Get Your Fresh Seafood</Text>
+                <Text h1 size={96}>Get Your Fresh Seafood</Text>
                 <Text h4>Experience the Market's Freshest Fish at Your Convenience</Text>
                 <Spacer y={1.5} />
-                <Button auto color="primary">Explore More</Button>
+                <Button size={"lg"} auto color="primary">Explore More</Button>
             </div>
             <div>
                 <img src={"/assets/images/Home/landing.png"} alt={`Fishes`} />
@@ -84,8 +83,8 @@ const HomeLanding = () => {
 
 const HomeNewArrivals = () => {
     return (
-        <div className={`h-screen w-[98%] m-auto flex flex-col justify-center`}>
-            <Text h2>New Arrivals</Text>
+        <div className={`h-screen w-4/5 m-auto flex flex-col justify-center`}>
+            <Text h2 size={48}>New Arrivals</Text>
             <Spacer y={1.5} />
             <Row gap={1}>
                 <Col>
@@ -104,11 +103,11 @@ const HomeNewArrivals = () => {
 
 const HomePopularItems = () => {
     return (
-        <div className={`h-screen w-[98%] m-auto flex flex-col justify-center`}>
-            <Text h2 css={{"margin-bottom": 0}}>Popular Items</Text>
+        <div className={`h-screen w-4/5 m-auto flex flex-col justify-center align-center`}>
+            <Text h2 size={48} css={{"margin-bottom": 0}}>Popular Items</Text>
             <Text h4>The products that our customers loved</Text>
             <Spacer y={1.5} />
-            <Grid.Container gap={1} justify={"center"}>
+            <Grid.Container gap={2} justify={"center"}>
                 <Grid xs={12} md={6} lg={4}>
                     <HomeCards />
                 </Grid>
@@ -128,6 +127,11 @@ const HomePopularItems = () => {
                     <HomeCards />
                 </Grid>
             </Grid.Container>
+            <Spacer y={1.5} />
+            <div className={"flex justify-center items-center"}>
+                <Button size={"lg"}>View More Products</Button>
+            </div>
+            <Spacer y={10} />
         </div>
     )
 }
@@ -174,7 +178,7 @@ const HomeMovieModal = () => {
 
 const HomeRecommendations = () => {
     return (
-        <div className={`h-screen w-[98%] m-auto flex flex-col justify-center`}>
+        <div className={`h-screen w-4/5 m-auto flex flex-col justify-center`}>
             <Text h2>Recommendations</Text>
             <Spacer y={1.5} />
             <Container sm>
@@ -197,14 +201,13 @@ const HomeRecommendations = () => {
                     </Col>
                 </Row>
             </Container>
-
         </div>
     )
 }
 
 const HomeCommitments = () => {
     return (
-        <div className={`h-screen w-[98%] m-auto flex flex-col justify-center`}>
+        <div className={`h-screen w-screen m-auto flex flex-col justify-center`}>
             <Text h2>Our Commitments</Text>
             <Spacer y={1.5} />
 

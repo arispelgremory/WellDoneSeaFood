@@ -1,10 +1,12 @@
 import { Row, Col, Text, Spacer, Card, Button, Container, Grid, Input, Dropdown, Checkbox } from "@nextui-org/react";
 import { Key, useMemo, useState } from "react";
+import Background from "../../assets/background.png";
 
 const Shop = () => {
     return (
         <>
             <Banner />
+            <Spacer y={3} />
             <ShopContainer />
         </>
     )
@@ -12,8 +14,8 @@ const Shop = () => {
 
 const Banner = () => {
     return (
-        <Container fluid>
-            ShopContainer
+        <Container fluid className={"page-cover"} display="flex" alignItems="center" justify="center">
+            <Text h2 size={60} className={"ml-12"}>Seafood Shop</Text>
         </Container>
     )
 }
@@ -118,9 +120,9 @@ const ShopCard = () => {
         <Card>
             <Card.Header css={{ position: "absolute", zIndex: 1, top: 5 }}>
                 <Col>
-                    <Text size={12} weight="bold" transform="uppercase" color="#ffffffAA">
+                    {/* <Text size={12} weight="bold" transform="uppercase" color="#ffffffAA">
                         New
-                    </Text>
+                    </Text> */}
                     <Text h3 color="white">
                         Acme camera
                     </Text>

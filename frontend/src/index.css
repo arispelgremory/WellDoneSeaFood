@@ -22,3 +22,11 @@
 .home-container::-webkit-scrollbar {
     display: none;
 }
+
+.page-cover {
+    background: url("assets/background.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50% 75%;
+    height: 50vh;
+}

@@ -1,14 +1,13 @@
 import React, { Suspense } from 'react';
 import './assets/css/App.css';
 import { Route, Routes } from "react-router-dom";
-import Navigationbar from './components/shared/navbar';
-import Shop from './components/shop/shop';
-import About from './components/about/about';
-import Contact from './components/contact/contact';
+import Navigationbar from './components/shared/navbar'
 
 const HomeComponent = React.lazy(() => import('./components/home/home'));
 const Login = React.lazy(() => import('./components/login/login'));
-
+const About = React.lazy(() => import('./components/about/about'));
+const Shop = React.lazy(() => import('./components/shop/shop'));
+const Contact = React.lazy(() => import('./components/contact/contact'));
 
 function App() {
   return (

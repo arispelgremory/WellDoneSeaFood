@@ -1,24 +1,18 @@
 import { Row, Col, Text, Spacer, Card, Button, Container, Grid, Input, Dropdown, Checkbox } from "@nextui-org/react";
 import { Key, useMemo, useState } from "react";
 import Background from "../../assets/background.png";
+import Banner from "../shared/Banner";
 
 const Shop = () => {
     return (
         <>
-            <Banner />
+            <Banner page={"Seafood Shop"} />
             <Spacer y={3} />
             <ShopContainer />
         </>
     )
 };
 
-const Banner = () => {
-    return (
-        <Container fluid className={"page-cover"} display="flex" alignItems="center" justify="center">
-            <Text h2 size={60} className={"ml-12"}>Seafood Shop</Text>
-        </Container>
-    )
-}
 
 const ShopContainer = () => {
     return (
